@@ -13,13 +13,38 @@
       --accent2:#ffcc00;
       --glass: rgba(255,255,255,0.06);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Roboto,system-ui,-apple-system,Segoe UI,Helvetica,Arial}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Roboto,system-ui,-apple-system,Segoe UI,Helvetica,Arial;color:#e6eef6;overflow-x:hidden}
     body{
-      background:radial-gradient(ellipse at center, #0b1220 0%, #030309 60%),
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><g fill="white" opacity="0.9"><circle cx="50" cy="30" r="1"/><circle cx="120" cy="90" r="1"/><circle cx="340" cy="40" r="1"/><circle cx="540" cy="200" r="1"/><circle cx="700" cy="50" r="1"/><circle cx="200" cy="300" r="1"/><circle cx="600" cy="420" r="1"/><circle cx="400" cy="500" r="1"/></g></svg>') repeat;
-      color:#e6eef6
+      position:relative;
+      background:radial-gradient(ellipse at center, #0b1220 0%, #030309 60%);
     }
+
+    /* fundo animado de estrelas */
+    .stars{
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;
+      background:transparent;
+      overflow:hidden;
+      z-index:-1;
+    }
+    .stars span{
+      position:absolute;
+      display:block;
+      width:2px;height:2px;
+      background:white;
+      opacity:0.8;
+      border-radius:50%;
+      animation:moveStars linear infinite;
+    }
+    @keyframes moveStars{
+      from{transform:translateY(0);}
+      to{transform:translateY(100vh);}
+    }
+    /* gera variação de movimento */
+    .stars span:nth-child(odd){animation-duration:10s;}
+    .stars span:nth-child(even){animation-duration:15s;}
+
     header{padding:28px 24px;display:flex;align-items:center;gap:16px}
     .logo{font-family:Orbitron, sans-serif;color:var(--accent);font-size:20px;letter-spacing:2px}
     .subtitle{color:#9fbfd0;font-size:14px}
@@ -39,7 +64,8 @@
     .right{width:360px}
     .controls{display:flex;gap:8px;margin-top:12px}
     .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);
-      padding:10px 12px;border-radius:8px;cursor:pointer;color:#e6eef6}
+      padding:10px 12px;border-radius:8px;cursor:pointer;color:#e6eef6;transition:0.3s;}
+    .btn:hover{background:rgba(255,255,255,0.1);}
     .btn.primary{background:linear-gradient(90deg,var(--accent),#7effff);
       color:#03121a;font-weight:700}
 
@@ -58,7 +84,7 @@
       border:1px solid rgba(255,255,255,0.04);
       box-shadow:0 16px 60px rgba(2,6,12,0.7)}
     .modal h2{margin:0;color:var(--accent)}
-    .modal p{color:#cfe7f2}
+    .modal p{color:#cfe7f2;white-space:pre-line;}
     .modal.show{transform:translateY(0)}
     .modal-back.show{visibility:visible;opacity:1}
 
@@ -91,6 +117,9 @@
   </style>
 </head>
 <body>
+  <!-- Fundo animado -->
+  <div class="stars" id="stars"></div>
+
   <header>
     <div class="logo">Para minha mestre jedi!</div>
     <div class="subtitle">Uma missão especial para o amor da minha vida — 16/11</div>
@@ -168,6 +197,18 @@
   </div>
 
   <script>
+    // Animação de estrelas (gera 100 aleatórias)
+    const starsContainer = document.getElementById("stars");
+    for(let i=0; i<100; i++){
+      const star = document.createElement("span");
+      star.style.left = Math.random()*100 + "%";
+      star.style.top = Math.random()*100 + "%";
+      star.style.width = star.style.height = Math.random()*2 + 1 + "px";
+      star.style.animationDuration = (8 + Math.random()*12) + "s";
+      star.style.animationDelay = (Math.random()*10) + "s";
+      starsContainer.appendChild(star);
+    }
+
     const modalBack=document.getElementById('modal-back'),
           modalText=document.getElementById('modal-text'),
           openBtn=document.getElementById('open-msg'),
