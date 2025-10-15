@@ -16,122 +16,78 @@
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Roboto,system-ui,-apple-system,Segoe UI,Helvetica,Arial}
     body{
-      background:radial-gradient(ellipse at center, #0b1220 0%, #030309 60%), 
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><g fill="white" opacity="0.9"><circle class="star" cx="50" cy="30" r="1"/><circle class="star" cx="120" cy="90" r="1"/><circle class="star" cx="340" cy="40" r="1"/><circle class="star" cx="540" cy="200" r="1"/><circle class="star" cx="700" cy="50" r="1"/><circle class="star" cx="200" cy="300" r="1"/><circle class="star" cx="600" cy="420" r="1"/><circle class="star" cx="400" cy="500" r="1"/></g></svg>') repeat; 
-      color:#e6eef6;
-      animation: stars 10s ease-in-out infinite alternate;
+      background:radial-gradient(ellipse at center, #0b1220 0%, #030309 60%),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><g fill="white" opacity="0.9"><circle cx="50" cy="30" r="1"/><circle cx="120" cy="90" r="1"/><circle cx="340" cy="40" r="1"/><circle cx="540" cy="200" r="1"/><circle cx="700" cy="50" r="1"/><circle cx="200" cy="300" r="1"/><circle cx="600" cy="420" r="1"/><circle cx="400" cy="500" r="1"/></g></svg>') repeat;
+      color:#e6eef6
     }
-
-    @keyframes stars {
-      0% {background-position: 0 0;}
-      100% {background-position: -50px -50px;}
-    }
-
     header{padding:28px 24px;display:flex;align-items:center;gap:16px}
-    .logo{font-family:Orbitron, sans-serif;color:var(--accent);font-size:20px;letter-spacing:2px;transition:all .3s ease}
-    .logo:hover{color:var(--accent2);text-shadow:0 0 10px var(--accent2)}
+    .logo{font-family:Orbitron, sans-serif;color:var(--accent);font-size:20px;letter-spacing:2px}
     .subtitle{color:#9fbfd0;font-size:14px}
 
     main{max-width:980px;margin:18px auto;padding:24px}
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;
-      padding:20px;
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;padding:20px;
       box-shadow:0 8px 30px rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      animation: floaty 5s ease-in-out infinite;
-    }
-
-    @keyframes floaty {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+      backdrop-filter: blur(6px)
     }
 
     .hero{display:flex;gap:20px;align-items:center}
     .panel{flex:1}
-    h1{font-family:Orbitron, sans-serif;margin:0;font-size:34px;color:var(--accent);transition:all .3s ease}
-    h2{font-family:Orbitron, sans-serif;color:var(--accent);margin-bottom:10px;transition:all .3s ease}
-    h1:hover, h2:hover {color:var(--accent2);text-shadow:0 0 12px var(--accent2);}
+    h1{font-family:Orbitron, sans-serif;margin:0;font-size:34px;color:var(--accent)}
     p.lead{color:#bcd4df}
 
     .right{width:360px}
     .controls{display:flex;gap:8px;margin-top:12px}
-    .btn{
-      background:var(--glass);
-      border:1px solid rgba(255,255,255,0.04);
-      padding:10px 12px;
-      border-radius:8px;
-      cursor:pointer;
-      color:#e6eef6;
-      transition:transform .2s ease, background .3s;
-    }
-    .btn:hover{background:rgba(255,255,255,0.08);transform:scale(1.05);}
-    .btn.primary{
-      background:linear-gradient(90deg,var(--accent),#7effff);
-      color:#03121a;
-      font-weight:700;
-      animation: pulse 2s infinite;
-    }
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);
+      padding:10px 12px;border-radius:8px;cursor:pointer;color:#e6eef6}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#7effff);
+      color:#03121a;font-weight:700}
 
-    @keyframes pulse {
-      0% { box-shadow:0 0 0 0 rgba(0,229,255,0.6); }
-      70% { box-shadow:0 0 0 10px rgba(0,229,255,0); }
-      100% { box-shadow:0 0 0 0 rgba(0,229,255,0); }
-    }
-
-    .saber{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
+    .saber{display:inline-block;padding:6px 10px;border-radius:999px;
       background:linear-gradient(90deg,#ff5f6d,#ffc371);
-      box-shadow:0 6px 20px rgba(255,95,109,0.18);
-      font-weight:700;
-      animation: glow 3s infinite ease-in-out alternate;
-    }
-
-    @keyframes glow {
-      0% {box-shadow:0 0 10px rgba(255,95,109,0.3);}
-      100% {box-shadow:0 0 25px rgba(255,95,109,0.7);}
-    }
+      box-shadow:0 6px 20px rgba(255,95,109,0.18);font-weight:700}
 
     footer{margin-top:16px;color:#90b3c4;font-size:13px;text-align:center}
 
-    .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;transition:opacity .18s}
-    .modal{
-      width:92%;
-      max-width:520px;
+    .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);
+      display:flex;align-items:center;justify-content:center;
+      visibility:hidden;opacity:0;transition:opacity .18s}
+    .modal{width:92%;max-width:520px;
       background:linear-gradient(180deg,rgba(10,14,20,0.98),rgba(6,9,14,0.98));
-      border-radius:12px;
-      padding:18px;
+      border-radius:12px;padding:18px;
       border:1px solid rgba(255,255,255,0.04);
-      box-shadow:0 16px 60px rgba(2,6,12,0.7);
-      animation: floaty 6s ease-in-out infinite;
-    }
+      box-shadow:0 16px 60px rgba(2,6,12,0.7)}
     .modal h2{margin:0;color:var(--accent)}
     .modal p{color:#cfe7f2}
     .modal.show{transform:translateY(0)}
     .modal-back.show{visibility:visible;opacity:1}
 
-    ul.love-list, ul.music-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
+    .list-section h3{
+      font-family:Orbitron,sans-serif;
+      color:var(--accent2);
+      margin-bottom:10px;
+      text-transform:uppercase;
+      font-size:18px;
     }
-    ul.love-list li, ul.music-list li {
-      background: var(--glass);
-      margin: 6px 0;
-      padding: 10px 12px;
-      border-radius: 8px;
-      color: #cfe7f2;
-      border: 1px solid rgba(255,255,255,0.04);
-      transition: transform .2s ease, background .3s;
+    ul{
+      list-style:none;
+      padding-left:0;
+      margin:0;
     }
-    ul.love-list li:hover, ul.music-list li:hover {
-      transform: scale(1.03);
-      background: rgba(255,255,255,0.08);
+    ul li{
+      background:rgba(255,255,255,0.03);
+      margin:6px 0;
+      padding:10px 14px;
+      border-radius:8px;
+      color:#d3e9f6;
+      border-left:3px solid var(--accent);
     }
 
-    @media (max-width:880px){.hero{flex-direction:column}.right{width:100%}.panel{width:100%}}
+    @media (max-width:880px){
+      .hero{flex-direction:column}
+      .right{width:100%}
+      .panel{width:100%}
+    }
   </style>
 </head>
 <body>
@@ -161,7 +117,88 @@
       </aside>
     </div>
 
-    <!-- COISAS QUE AMO EM VOCÊ -->
-    <section class="card" style="margin-top:24px">
-      <h2>Coisas que amo em você 💖</h2>
-      <ul class="love
+    <!-- LISTA DE COISAS QUE AMO -->
+    <div class="card list-section" style="margin-top:28px">
+      <h3>Coisas que amo em você 💙</h3>
+      <ul>
+        <li>Seu sorriso</li>
+        <li>Seu olhar quando estou dirigindo</li>
+        <li>Seu carinho</li>
+        <li>Quando você canta</li>
+        <li>Quando me conta curiosidades do mundo pop</li>
+        <li>Que me ensinou o que é música de verdade</li>
+        <li>O quanto você me faz feliz</li>
+        <li>O jeito que cuida e se preocupa comigo</li>
+        <li>Seu abraço e seu carinho</li>
+        <li>Você, por trazer cores ao meu mundo</li>
+      </ul>
+    </div>
+
+    <!-- LISTA DE MÚSICAS -->
+    <div class="card list-section" style="margin-top:24px">
+      <h3>Músicas que me fazem pensar em você 🎶</h3>
+      <ul>
+        <li>The Life of Showgirl</li>
+        <li>Handlebars</li>
+        <li>Porque Eu Te Amo</li>
+        <li>Love Again</li>
+        <li>Lover</li>
+        <li>Homem-Aranha</li>
+        <li>All Star</li>
+        <li>Mania de Você</li>
+        <li>Caso Sério</li>
+        <li>Só Você</li>
+        <li>Call It What You Want</li>
+      </ul>
+    </div>
+
+    <footer class="card" style="margin-top:18px">
+      <small>Criei isso com muito carinho — personalize cores, mensagens e imagens como preferir.</small>
+    </footer>
+  </main>
+
+  <div class="modal-back" id="modal-back" role="dialog" aria-hidden="true">
+    <div class="modal" role="document">
+      <h2>Feliz Aniversário, meu amor 💫</h2>
+      <p id="modal-text"></p>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
+        <button class="btn" id="close-modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modalBack=document.getElementById('modal-back'),
+          modalText=document.getElementById('modal-text'),
+          openBtn=document.getElementById('open-msg'),
+          closeBtn=document.getElementById('close-modal');
+
+    const mensagem=`Feliz aniversário, meu amor!\n\nHoje celebro você — sua luz, seu riso e todo o universo que você constrói ao meu redor. Te amo de aqui até outras galáxias; meu amor por você é infinito, sem limites e sem fim. Obrigado por existir e por ser meu lar. Para sempre seu.`;
+
+    openBtn.addEventListener('click',()=>{
+      modalText.textContent=mensagem;
+      modalBack.classList.add('show');
+      modalBack.setAttribute('aria-hidden','false');
+    });
+
+    closeBtn.addEventListener('click',()=>{
+      modalBack.classList.remove('show');
+      modalBack.setAttribute('aria-hidden','true');
+    });
+
+    modalBack.addEventListener('click',e=>{
+      if(e.target===modalBack){
+        modalBack.classList.remove('show');
+        modalBack.setAttribute('aria-hidden','true');
+      }
+    });
+
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){
+        modalBack.classList.remove('show');
+        modalBack.setAttribute('aria-hidden','true');
+      }
+    });
+  </script>
+</body>
+</html>
